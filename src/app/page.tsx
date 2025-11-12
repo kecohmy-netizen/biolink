@@ -109,6 +109,11 @@ export default function Home() {
               data-ai-hint={profileImage.imageHint}
               priority
               loading="eager"
+              onError={(e) => {
+                // Fallback jika image tidak load
+                const target = e.target as HTMLImageElement;
+                target.src = "/placeholder-user.jpg";
+              }}
             />
             <div className="absolute bottom-0 right-0 flex items-center gap-1">
               <Button
