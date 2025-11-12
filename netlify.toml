@@ -10,9 +10,7 @@
   PNPM_VERSION = "10"
   NODE_ENV = "production"
 
-# Next.js will handle all routing
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/next"
-  status = 200
+# Ensure Next.js plugin handles all routing
+[functions]
+  node_bundler = "esbuild"
 
