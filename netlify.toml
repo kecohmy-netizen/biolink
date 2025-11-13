@@ -33,9 +33,19 @@
   status = 200
   force = true
 
-# TikTok verification file - accessible at both locations
-# Primary location: /.well-known/tiktok-developers-site-verification.txt
-# Fallback: /tiktok-developers-site-verification.txt
+# TikTok verification file - multiple paths for compatibility
+# Try all possible paths TikTok might check
+[[redirects]]
+  from = "/tiktok-developers-site-verification.txt"
+  to = "/.well-known/tiktok-developers-site-verification.txt"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/k0Oy6GgMKypVi6xIi40UdYm5Xqhf7cKM.txt"
+  to = "/.well-known/tiktok-developers-site-verification.txt"
+  status = 200
+  force = true
 
 # Headers for security
 [[headers]]
@@ -64,3 +74,17 @@
   [headers.values]
     Content-Type = "text/plain; charset=UTF-8"
     Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/k0Oy6GgMKypVi6xIi40UdYm5Xqhf7cKM.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=UTF-8"
+    Cache-Control = "public, max-age=3600"
+
+# Allow .well-known folder access
+[[headers]]
+  for = "/.well-known/*"
+  [headers.values]
+    Content-Type = "text/plain; charset=UTF-8"
+    Cache-Control = "public, max-age=3600"
+    Access-Control-Allow-Origin = "*"
