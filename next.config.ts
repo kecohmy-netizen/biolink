@@ -30,6 +30,28 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Ensure .well-known folder is served correctly
+  async headers() {
+    return [
+      {
+        source: '/.well-known/:path*',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=UTF-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600',
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
