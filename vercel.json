@@ -18,10 +18,6 @@
     {
       "source": "/terms",
       "destination": "/terms-of-service.html"
-    },
-    {
-      "source": "/tiktok-developers-site-verification.txt",
-      "destination": "/.well-known/tiktok-developers-site-verification.txt"
     }
   ],
   "headers": [
@@ -44,6 +40,23 @@
     },
     {
       "source": "/tiktok-developers-site-verification.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=UTF-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/UmdJwgRr1hmvQfyBXPIImd9TC4gMumOj.txt",
       "headers": [
         {
           "key": "Content-Type",
