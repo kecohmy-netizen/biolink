@@ -1,27 +1,37 @@
-# Netlify Configuration
+# Netlify Configuration for Next.js
 [build]
-  publish = "."
-  command = "echo 'Static site - no build needed'"
+  command = "pnpm build"
+  publish = ".next"
+  
+# Environment variables
+[build.environment]
+  NODE_VERSION = "20"
+  PNPM_VERSION = "10"
 
+# Redirects untuk static HTML files dalam public folder
 [[redirects]]
   from = "/privacy-policy"
   to = "/privacy-policy.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/privacy"
   to = "/privacy-policy.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/terms-of-service"
   to = "/terms-of-service.html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/terms"
   to = "/terms-of-service.html"
   status = 200
+  force = true
 
 # Headers for security
 [[headers]]
