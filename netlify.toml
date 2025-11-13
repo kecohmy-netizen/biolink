@@ -33,6 +33,13 @@
   status = 200
   force = true
 
+# TikTok verification file - ensure it's accessible
+[[redirects]]
+  from = "/.well-known/tiktok-developers-site-verification.txt"
+  to = "/tiktok-developers-site-verification.txt"
+  status = 200
+  force = true
+
 # Headers for security
 [[headers]]
   for = "/*"
