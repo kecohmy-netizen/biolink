@@ -33,12 +33,9 @@
   status = 200
   force = true
 
-# TikTok verification file - ensure it's accessible
-[[redirects]]
-  from = "/.well-known/tiktok-developers-site-verification.txt"
-  to = "/tiktok-developers-site-verification.txt"
-  status = 200
-  force = true
+# TikTok verification file - accessible at both locations
+# Primary location: /.well-known/tiktok-developers-site-verification.txt
+# Fallback: /tiktok-developers-site-verification.txt
 
 # Headers for security
 [[headers]]
@@ -53,4 +50,17 @@
   for = "/*.html"
   [headers.values]
     Content-Type = "text/html; charset=UTF-8"
+    Cache-Control = "public, max-age=3600"
+
+# Headers for TikTok verification file
+[[headers]]
+  for = "/.well-known/tiktok-developers-site-verification.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=UTF-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/tiktok-developers-site-verification.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=UTF-8"
     Cache-Control = "public, max-age=3600"
