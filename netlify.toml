@@ -13,6 +13,16 @@
   to = "/privacy-policy.html"
   status = 200
 
+[[redirects]]
+  from = "/terms-of-service"
+  to = "/terms-of-service.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms-of-service.html"
+  status = 200
+
 # Headers for security
 [[headers]]
   for = "/*"
